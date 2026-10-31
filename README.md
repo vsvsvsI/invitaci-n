@@ -1,5 +1,4 @@
-# Invitación digital · Ema cumple 9
-
+# Invitación digital 
 Invitación interactiva (sobre → sello → carta). Solo HTML, CSS y JavaScript: sin servidor, sin base de datos, sin costo.
 
 ```
