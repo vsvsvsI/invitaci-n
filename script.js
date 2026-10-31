@@ -327,8 +327,8 @@
       $('#step2Title').textContent = va ? `¡Gracias, ${nombre.split(' ')[0]}!` : `Gracias por avisar, ${nombre.split(' ')[0]}`;
       $('#step2Text').textContent = va
         ? `Recibimos tu confirmación${guests ? ` (vienes con ${guests} acompañante${guests > 1 ? 's' : ''})` : ''}. ¡Te esperamos!`
-        : 'Recibimos tu respuesta. ¡Gracias por avisarnos!';
-      if (!form.website.value) {                                         // el campo oculto atrapa bots
+        : 'Recibimos tu respuesta. ¡Lamentamos que no puedas venir!';
+      if (!form.website.value) {                                         // el campo oculto atrapa bots                                      // el campo oculto atrapa bots
         submitBtn.disabled = true; const label = submitBtn.textContent; submitBtn.textContent = 'Enviando…';
         try {
           await sendRsvp({ id: rsvpId, nombre, asistencia: va ? 'Sí' : 'No', acompanantes: names, comentario });
