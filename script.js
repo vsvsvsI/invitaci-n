@@ -127,6 +127,7 @@
     turning = true; flipped = toBack;
     const t = reduced() ? 0 : 1200;
     deck.classList.add('is-turning');
+    document.querySelectorAll('#fx .petal').forEach((p) => p.remove());   // sin pétalos detrás mientras gira la blonda
     seeBtn.hidden = true; backChip.hidden = true;
     if (toBack) { faceF.inert = true; faceB.inert = false; faceB.removeAttribute('aria-hidden'); }
     else { after.hidden = true; faceB.inert = true; faceB.setAttribute('aria-hidden', 'true'); window.scrollTo({ top: 0, behavior: 'auto' }); }
