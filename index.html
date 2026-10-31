@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ema te ha enviado una carta</title>
+  <meta name="description" content="Estás invitado al cumpleaños número 9 de Ema.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f7d3dc">
+
+  <!-- Vista previa al compartir por WhatsApp.
+       Reemplaza TU-USUARIO por tu usuario de GitHub (ver README.md). -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ema te ha enviado una carta">
+  <meta property="og:description" content="Estás invitado al cumpleaños número 9 de Ema. Toca para abrirla.">
+  <meta property="og:image" content="https://TU-USUARIO.github.io/invitacion-ema/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="icon" href="assets/img/frutilla-1.webp" type="image/webp">
+  <link rel="preload" as="image" href="assets/img/sobre-cerrado.webp">
+  <link rel="preload" as="image" href="assets/img/sello.webp">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/caveat-latin-700-normal.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/great-vibes-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+</head>
+
+<body class="is-locked">
+  <div class="bg" aria-hidden="true"></div>
+
+  <!-- =========================== PORTADA: SOBRE =========================== -->
+  <main class="cover" id="cover">
+    <h1 class="cover__title" id="coverTitle">Te ha llegado una carta</h1>
+
+    <div class="stage is-closed" id="stage">
+      <!-- Capas del sobre (de atrás hacia delante) -->
+      <img class="stage__back"   src="assets/img/sobre-abierto.webp" alt="" decoding="async">
+      <img class="stage__lining" src="assets/img/sobre-abierto.webp" alt="" decoding="async">
+      <div class="stage__letterclip">
+        <img class="stage__letter" id="stageLetter" src="assets/img/tarjeta-frente.webp" alt="" decoding="async">
+      </div>
+      <img class="stage__front"  src="assets/img/sobre-abierto.webp" alt="" decoding="async">
+      <img class="stage__closed" src="assets/img/sobre-cerrado.webp" alt="Sobre cerrado" decoding="async">
+
+      <!-- Solapa que gira (lleva el sello pegado) -->
+      <div class="flap">
+        <img class="flap__img" src="assets/img/sobre-cerrado.webp" alt="" decoding="async">
+        <button class="seal" id="seal" type="button" aria-label="Abrir la carta">
+          <img src="assets/img/sello.webp" alt="" decoding="async">
+        </button>
+      </div>
+    </div>
+
+    <p class="cover__hint" id="coverHint">Toca el sello para abrirla</p>
+  </main>
+
+  <!-- ============================ INVITACIÓN ============================ -->
+  <div class="page" id="page">
+    <main class="view" id="view">
+
+      <!-- La carta: el frente es la tarjeta con collage; al girarla se ve la blonda por detrás -->
+      <div class="deck" id="deck">
+        <article class="flip" id="card">
+
+          <!-- FRENTE -->
+          <section class="face face--front" id="faceFront" role="button" tabindex="0" aria-label="Toca para ver los detalles">
+            <img class="face__bg" id="cardBg" src="assets/img/tarjeta-frente.webp" alt="" decoding="async">
+
+            <!-- Decoración (ilustraciones originales) -->
+            <img class="deco f-hoja1" style="--r:-20deg; --d:0.5s" src="assets/img/hoja-a.webp" alt="" decoding="async">
+            <img class="deco f-hoja2" style="--r:10deg; --d:1s" src="assets/img/hoja-b.webp" alt="" decoding="async">
+            <img class="deco f-hoja3" style="--r:70deg; --d:0.3s" src="assets/img/hoja-a.webp" alt="" decoding="async">
+            <img class="deco f-hoja4" style="--r:-35deg; --d:1.2s" src="assets/img/hoja-b.webp" alt="" decoding="async">
+            <img class="deco f-fru-tl" style="--r:-8deg; --d:0.2s" src="assets/img/frutilla-2.webp" alt="" decoding="async">
+            <img class="deco f-flor-t" style="--r:12deg; --d:1.4s" src="assets/img/flor.webp" alt="" decoding="async">
+            <img class="deco f-mono" style="--r:6deg; --d:0s" src="assets/img/mono-1.webp" alt="" decoding="async">
+            <img class="deco f-fru-r" style="--r:10deg; --d:0.6s" src="assets/img/frutilla-1.webp" alt="" decoding="async">
+            <img class="deco f-fru-bl" style="--r:-6deg; --d:1.1s" src="assets/img/frutilla-2.webp" alt="" decoding="async">
+            <img class="deco f-flor-bl" style="--r:-10deg; --d:1.9s" src="assets/img/flor.webp" alt="" decoding="async">
+            <img class="deco f-flor-br" style="--r:16deg; --d:1.6s" src="assets/img/flor.webp" alt="" decoding="async">
+          </section>
+
+          <!-- REVERSO: solo la blonda -->
+          <section class="face face--back" id="faceBack" aria-hidden="true" inert>
+            <img class="face__bg" src="assets/img/encaje.webp" alt="" decoding="async">
+
+            <div class="back__text">
+              <div class="qhead"><h2 class="q">¿Cuándo?<svg class="qicon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="14" r="1.2" fill="currentColor"/><circle cx="12" cy="14" r="1.2" fill="currentColor"/><circle cx="16" cy="14" r="1.2" fill="currentColor"/><circle cx="8" cy="17.5" r="1.2" fill="currentColor"/><circle cx="12" cy="17.5" r="1.2" fill="currentColor"/></svg></h2></div>
+              <p class="big" data-bind="fecha"></p>
+              <p class="time">a las <span data-bind="hora"></span></p>
+
+              <div class="divider" aria-hidden="true"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21C5 15.5 1.5 11.8 1.5 7.6 1.5 4.4 4 2 7 2c2 0 3.8 1.1 5 3 1.2-1.9 3-3 5-3 3 0 5.5 2.4 5.5 5.6 0 4.2-3.5 7.9-10.5 13.4Z"/></svg></div>
+
+              <div class="qhead"><h2 class="q">¿Dónde?<svg class="qicon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg></h2></div>
+              <p class="big big--place" data-bind="lugarNombre"></p>
+              <p class="small"><span data-bind="direccion"></span><br><span data-bind="sector"></span></p>
+              <button class="btn-mini" type="button" id="mapToggle" aria-expanded="false" aria-controls="mapDrawer">
+                <span id="mapToggleText">Ver mapa</span>
+              </button>
+
+              <div class="divider" aria-hidden="true"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21C5 15.5 1.5 11.8 1.5 7.6 1.5 4.4 4 2 7 2c2 0 3.8 1.1 5 3 1.2-1.9 3-3 5-3 3 0 5.5 2.4 5.5 5.6 0 4.2-3.5 7.9-10.5 13.4Z"/></svg></div>
+
+              <p class="eyebrow" data-bind="dresscodeEtiqueta"></p>
+              <p class="dress" data-bind="dresscode"></p>
+              <p class="small small--info" data-bind="info"></p>
+              <button class="btn-rsvp" type="button" id="openRsvp"><svg class="ricon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 7l9 6.2L21 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="rsvpLabel">Confirmar asistencia</span></button>
+            </div>
+
+            <!-- Más decoración -->
+            <img class="deco b-mono" style="--r:0deg; --d:0s" src="assets/img/mono-2.webp" alt="" decoding="async">
+            <img class="deco b-fru-tl" style="--r:-14deg; --d:0.3s" src="assets/img/frutilla-1.webp" alt="" decoding="async">
+            <img class="deco b-fru-br" style="--r:12deg; --d:0.8s" src="assets/img/frutilla-2.webp" alt="" decoding="async">
+            <img class="deco b-flor-tr" style="--r:14deg; --d:1.2s" src="assets/img/flor.webp" alt="" decoding="async">
+            <img class="deco b-flor-bl" style="--r:-12deg; --d:1.7s" src="assets/img/flor.webp" alt="" decoding="async">
+            <img class="deco b-flor-mr" style="--r:20deg; --d:0.5s" src="assets/img/flor.webp" alt="" decoding="async">
+            <img class="deco b-hoja1" style="--r:-30deg; --d:0.9s" src="assets/img/hoja-a.webp" alt="" decoding="async">
+            <img class="deco b-hoja4" style="--r:-150deg; --d:0.6s" src="assets/img/hoja-b.webp" alt="" decoding="async">
+            <img class="deco b-fru-ml" style="--r:18deg; --d:1.3s" src="assets/img/frutilla-1.webp" alt="" decoding="async">
+          </section>
+        </article>
+      </div>
+
+      <button class="cta" id="seeDetails" type="button">
+        <span>Toca para ver los detalles</span><i aria-hidden="true"></i>
+      </button>
+      <button class="backchip" id="backToCard" type="button" hidden><i aria-hidden="true"></i>La carta</button>
+
+      <!-- Lo que aparece debajo cuando la carta está del revés -->
+      <div class="after" id="after" hidden>
+
+        <!-- Mapa: se despliega al tocar «Ver mapa» -->
+        <div class="drawer" id="mapDrawer">
+          <div class="drawer__in">
+            <div class="berry" id="mapframe">
+              <div class="berry__map">
+                <iframe id="mapIframe" title="Mapa con la ubicación de la fiesta" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" allowfullscreen tabindex="-1"></iframe>
+                <button class="mapframe__veil" type="button" id="mapVeil" aria-label="Activar el mapa para moverlo">
+                  <span>Toca para mover el mapa</span>
+                </button>
+              </div>
+              <img class="berry__frame" src="assets/img/frutilla-marco.webp" alt="" decoding="async">
+            </div>
+            <a class="btn btn--primary" id="mapsBtn" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+              Abrir en Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Cuenta regresiva: aparece cuando la persona confirma -->
+        <div class="count" id="count" hidden>
+          <img class="deco-s k-mono" style="--r:-24deg" src="assets/img/mono-2.webp" alt="" decoding="async">
+          <p class="count__label">Faltan</p>
+          <div class="count__grid" id="countGrid" role="timer" aria-live="off">
+            <div class="tile"><b id="cDias">00</b><span>días</span></div>
+            <div class="tile"><b id="cHoras">00</b><span>horas</span></div>
+            <div class="tile"><b id="cMin">00</b><span>min</span></div>
+            <div class="tile"><b id="cSeg">00</b><span>seg</span></div>
+          </div>
+          <p class="count__done" id="countDone" hidden></p>
+          <p class="count__msg" data-bind="mensaje"></p>
+          <button class="btn btn--ghost btn--small" type="button" id="celebrate">¡Celebrar!</button>
+        </div>
+
+        <button class="btn btn--ghost btn--small" type="button" id="closeEnvelope">Volver a cerrar el sobre</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================= CONFIRMAR ASISTENCIA ========================= -->
+  <dialog class="sheet" id="rsvp" aria-labelledby="rsvpTitle">
+    <button class="sheet__close" type="button" data-close aria-label="Cerrar">&times;</button>
+    <img class="sheet__mono" src="assets/img/mono-1.webp" alt="" decoding="async">
+
+    <form id="rsvpForm" novalidate>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <h2 class="sheet__title" id="rsvpTitle">Confirma tu asistencia</h2>
+
+      <label class="field">
+        <span class="field__label">Tu nombre</span>
+        <input type="text" name="nombre" autocomplete="name" maxlength="80" placeholder="Nombre y apellido" required>
+      </label>
+
+      <fieldset class="field">
+        <legend class="field__label">¿Vienes a la fiesta?</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="asistencia" value="si" required><span>¡Sí, voy!</span></label>
+          <label class="choice"><input type="radio" name="asistencia" value="no"><span>No podré ir</span></label>
+        </div>
+      </fieldset>
+
+      <div class="field" id="guestsField" hidden>
+        <span class="field__label" id="guestsLabel">¿Cuántos acompañantes traes?</span>
+        <div class="stepper" role="group" aria-labelledby="guestsLabel">
+          <button type="button" data-step="-1" aria-label="Menos acompañantes">&minus;</button>
+          <output id="guestsOut" aria-live="polite">0</output>
+          <button type="button" data-step="1" aria-label="Más acompañantes">+</button>
+        </div>
+        <small class="field__hint">Sin contarte a ti</small>
+        <div class="guestnames" id="guestNames"></div>
+      </div>
+
+      <label class="field">
+        <span class="field__label">Comentario <em>(opcional)</em></span>
+        <textarea name="comentario" rows="2" maxlength="300" placeholder="Alergias, un saludo…"></textarea>
+      </label>
+
+      <p class="form-error" id="rsvpError" role="alert" hidden></p>
+      <button class="btn btn--primary btn--block" type="submit" id="rsvpSubmit">Continuar</button>
+    </form>
+
+    <div id="rsvpStep2" hidden>
+      <h2 class="sheet__title" id="step2Title"></h2>
+      <p class="sheet__text" id="step2Text"></p>
+      <p class="form-error" id="step2Error" role="alert" hidden></p>
+      <a class="btn btn--primary btn--block" id="step2Link" target="_blank" rel="noopener">Abrir formulario y enviar</a>
+      <p class="sheet__note" id="step2Note">Tu respuesta queda registrada cuando tocas <b>Enviar</b> en el formulario de Google.</p>
+      <div class="sheet__row">
+        <button class="btn btn--ghost btn--small" type="button" id="step2Back">Corregir mis datos</button>
+        <button class="btn btn--ghost btn--small" type="button" id="step2Done" data-close>Listo</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="fx" id="fx" aria-hidden="true"></div>
+
+  <noscript><p style="position:fixed;inset:auto 0 20px;text-align:center;font:16px serif;color:#6b0614">Para ver la invitación activa JavaScript.</p></noscript>
+  <script src="script.js"></script>
+</body>
+</html>
