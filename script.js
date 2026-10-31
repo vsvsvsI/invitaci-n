@@ -55,7 +55,7 @@
   $('#mapsBtn').href = (isApple && C.lugar.enlaceApple) || C.lugar.enlaceMaps;
 
   /* Precarga de imágenes para que la apertura no se entrecorte */
-  const IMGS = ['sobre-abierto', 'tarjeta-frente', 'encaje', 'globo-9', 'frutilla-1', 'frutilla-2', 'flor', 'hoja-a', 'hoja-b', 'mono-1', 'mono-2']
+  const IMGS = ['sobre-abierto', 'tarjeta-frente-v2', 'encaje-v2', 'globo-9', 'frutilla-1', 'frutilla-2', 'flor', 'hoja-a', 'hoja-b', 'mono-1', 'mono-2']
     .map((n) => `assets/img/${n}.webp`);
   const preloaded = Promise.all(IMGS.map((src) => { const i = new Image(); i.src = src; return i.decode().catch(() => {}); }));
 

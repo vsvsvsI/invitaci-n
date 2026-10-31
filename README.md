@@ -67,7 +67,7 @@ Sobre (la solapa gira) → hoja 1: blonda con tu tarjeta rosa encima («Te invit
 Sobre (la solapa gira; la carta sale un poco desenfocada y se enfoca al llegar) → frente de la carta (tu imagen con el texto ya acomodado + decoración encima) → «Toca para ver los detalles» → la carta gira y muestra la blonda con ¿Cuándo?, ¿Dónde? («Ver mapa» despliega el mapa dentro de una frutilla y recién ahí aparece «Abrir en Maps») y el código de vestimenta → «Confirmar asistencia» → al terminar aparece la cuenta regresiva.
 
 ## Imágenes del frente
-El texto del frente (incluido el globo 9 y los corazones) vive dentro de `assets/img/tarjeta-frente.webp`. Si cambias algo de ese texto, reemplaza esa imagen (mismas proporciones). La decoración (frutillas, moño, flores, hojas) se acomoda en `styles.css` (clases `.f-…`).
+El texto del frente (incluido el globo 9 y los corazones) vive dentro de `assets/img/tarjeta-frente-v2.webp`. Si cambias algo de ese texto, reemplaza esa imagen (mismas proporciones). La decoración (frutillas, moño, flores, hojas) se acomoda en `styles.css` (clases `.f-…`).
 
 ## Fuente Best Swashed
 Está en `assets/fonts/best-swashed.woff2` (convertida desde tu archivo, versión de uso personal). Si quieres cambiar de fuente, edita `--f-swash` en `styles.css`.
