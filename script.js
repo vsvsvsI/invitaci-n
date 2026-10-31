@@ -197,25 +197,50 @@
   setInterval(() => { if (!document.hidden) tick(); }, 1000);
 
   /* -------------------------------- 4 · Mapa -------------------------------- */
-  const mapIframe = $('#mapIframe'), mapframe = $('#mapframe');
-  function loadMap() {
-    if (mapIframe.src) return;
+  const mapIframe = $('#mapIframe'), mapframe = $('#mapframe'), leafEl = $('#leafMap');
+  let leafLoaded = false;
+  function loadScript(src) { return new Promise((ok, fail) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = fail; document.head.appendChild(s); }); }
+  function loadStyle(href) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = href; document.head.appendChild(l); }
+  function googleFallback() {
     const L = C.lugar;
-    mapIframe.src = L.mapaEmbedUrl || `https://www.google.com/maps?q=${encodeURIComponent(L.mapaBusqueda)}&hl=es&z=16&output=embed`;
+    leafEl.hidden = true; mapframe.classList.remove('is-leaflet');
+    if (!mapIframe.src) mapIframe.src = L.mapaEmbedUrl || `https://www.google.com/maps?q=${encodeURIComponent(L.mapaBusqueda)}&hl=es&z=16&output=embed`;
+  }
+  async function loadMap() {
+    if (leafLoaded || mapIframe.src) return;
+    const L = C.lugar;
+    if (typeof L.lat !== 'number' || typeof L.lng !== 'number') return googleFallback();
+    leafLoaded = true;
+    try {
+      loadStyle('assets/vendor/leaflet/leaflet.css');
+      await loadScript('assets/vendor/leaflet/leaflet.js');
+      leafEl.hidden = false; mapframe.classList.add('is-leaflet');
+      const map = window.L.map(leafEl, { zoomControl: false, attributionControl: true, tap: true }).setView([L.lat, L.lng], 16);
+      window.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map);
+      window.L.control.zoom({ position: 'bottomright' }).addTo(map);
+      const icon = window.L.divIcon({ className: 'leafpin', html: '<img src="assets/img/frutilla-1.webp" alt="">', iconSize: [38, 42], iconAnchor: [19, 40] });
+      window.L.marker([L.lat, L.lng], { icon, keyboard: false, title: L.nombre }).addTo(map);
+      setTimeout(() => map.invalidateSize(), 800);
+      window.addEventListener('resize', () => map.invalidateSize());
+    } catch (err) { console.warn('Mapa:', err); leafLoaded = false; googleFallback(); }
   }
   // El mapa se despliega (y recién ahí se carga) al tocar «Ver mapa»
   const drawer = $('#mapDrawer'), mapToggle = $('#mapToggle'), mapToggleText = $('#mapToggleText');
-  mapToggle.addEventListener('click', () => {
-    const open = !drawer.classList.contains('is-open');
+  function setMap(open, fromClose) {
     drawer.classList.toggle('is-open', open);
     mapToggle.setAttribute('aria-expanded', String(open));
     mapToggleText.textContent = open ? 'Ocultar mapa' : 'Ver mapa';
     if (open) {
       loadMap();
       setTimeout(() => drawer.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'center' }), reduced() ? 0 : 250);
-    } else mapframe.classList.remove('is-active');
-  });
-  // En móvil el mapa captura el scroll: se activa al tocarlo y se desactiva al tocar fuera.
+    } else {
+      mapframe.classList.remove('is-active');
+      if (fromClose) mapToggle.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'center' });
+    }
+  }
+  mapToggle.addEventListener('click', () => setMap(!drawer.classList.contains('is-open')));
+  $('#mapClose').addEventListener('click', () => setMap(false, true));
+  // Con el mapa de Google (sin coordenadas) se activa al tocarlo y se desactiva al tocar fuera.
   $('#mapVeil').addEventListener('click', () => mapframe.classList.add('is-active'));
   document.addEventListener('pointerdown', (e) => { if (!mapframe.contains(e.target)) mapframe.classList.remove('is-active'); });
 

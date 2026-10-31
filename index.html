@@ -138,6 +138,7 @@
           <div class="drawer__in">
             <div class="berry" id="mapframe">
               <div class="berry__map">
+                <div class="leafmap" id="leafMap" hidden></div>
                 <iframe id="mapIframe" title="Mapa con la ubicación de la fiesta" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade" allowfullscreen tabindex="-1"></iframe>
                 <button class="mapframe__veil" type="button" id="mapVeil" aria-label="Activar el mapa para moverlo">
@@ -150,6 +151,10 @@
               <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
               Abrir en Maps
             </a>
+            <button class="btn-close-map" type="button" id="mapClose">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+              Cerrar mapa
+            </button>
           </div>
         </div>
 

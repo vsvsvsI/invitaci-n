@@ -1,4 +1,5 @@
-# Invitación digital 
+# Invitación digital · Ema cumple 9
+
 Invitación interactiva (sobre → sello → carta). Solo HTML, CSS y JavaScript: sin servidor, sin base de datos, sin costo.
 
 ```
@@ -83,3 +84,7 @@ Una página web no puede escribir directamente en un archivo Excel; lo que sí p
 
 Notas: esa URL es pública (cualquiera que la tenga podría enviar datos); cada persona (invitado o acompañante) queda en su propia fila, y los acompañantes llevan en «Acompañante de» el nombre de quien los trae. La hoja ignora reintentos repetidos y, si alguien confirma otra vez con el mismo nombre, reemplaza su respuesta anterior. Si cambias el script, hay que crear una **nueva implementación** para que se aplique.
 Si `scriptUrl` queda vacío, se usa la opción del formulario de Google (`formUrl`).
+
+## Mapa que se mueve con un dedo
+
+El mapa incrustado de Google siempre pide «dos dedos» en celulares. Si pones las coordenadas del lugar en `config.js` (`lugar.lat` y `lugar.lng`), la invitación usa un mapa propio (OpenStreetMap, con una frutilla como marcador) que se mueve con un dedo. Para obtenerlas: en Google Maps mantén presionado el lugar exacto y copia los dos números que aparecen arriba. Si quedan vacías, se usa el mapa de Google.

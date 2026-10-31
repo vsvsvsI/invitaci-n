@@ -41,7 +41,13 @@ window.INVITACION = {
     // OPCIONAL y más exacto: en Google Maps > Compartir > "Insertar un mapa",
     // copia SOLO la dirección que está dentro de src="..." y pégala aquí.
     // Si lo completas, se usa en lugar de la búsqueda de arriba.
-    mapaEmbedUrl: ""
+    mapaEmbedUrl: "",
+
+    // MEJOR OPCIÓN para celulares: coordenadas del lugar. Con ellas el mapa se mueve con UN dedo
+    // (el mapa de Google incrustado siempre pide dos dedos). Cómo obtenerlas: en Google Maps,
+    // mantén presionado el lugar exacto y copia los dos números que aparecen arriba, ej. -32.8123, -71.2345
+    lat: null,
+    lng: null
   },
 
   /* ---- Textos de la invitación ---- */
@@ -59,12 +65,12 @@ window.INVITACION = {
   rsvp: {
     // OPCIÓN A (recomendada): envío automático a una planilla de Google Sheets.
     // Pega aquí la URL de la «aplicación web» de Apps Script (ver README, sección «Confirmaciones»).
-    scriptUrl: "https://script.google.com/macros/s/AKfycbxLRnNLY3uEZLoF6-22AO5DN9nND6jjw3VM4t7aqlgBaJ6GVQnwZKUOBGyzt0qrwLS_Ew/exec",
+    scriptUrl: "",
 
     // OPCIÓN B (si scriptUrl está vacío): abrir un Google Form con las respuestas ya rellenadas.
     // Enlace del formulario terminado en /viewform
     // Ej.: "https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform"
-    formUrl: "",
+    formUrl: "https://script.google.com/macros/s/AKfycbxLRnNLY3uEZLoF6-22AO5DN9nND6jjw3VM4t7aqlgBaJ6GVQnwZKUOBGyzt0qrwLS_Ew/exec",
 
     // Identificadores de cada pregunta ("entry.123456789").
     // Se obtienen con "Obtener enlace rellenado previamente" en Google Forms.
