@@ -59,7 +59,7 @@ window.INVITACION = {
   rsvp: {
     // OPCIÓN A (recomendada): envío automático a una planilla de Google Sheets.
     // Pega aquí la URL de la «aplicación web» de Apps Script (ver README, sección «Confirmaciones»).
-    scriptUrl: "",
+    scriptUrl: "https://script.google.com/macros/s/AKfycbxLRnNLY3uEZLoF6-22AO5DN9nND6jjw3VM4t7aqlgBaJ6GVQnwZKUOBGyzt0qrwLS_Ew/exec",
 
     // OPCIÓN B (si scriptUrl está vacío): abrir un Google Form con las respuestas ya rellenadas.
     // Enlace del formulario terminado en /viewform
